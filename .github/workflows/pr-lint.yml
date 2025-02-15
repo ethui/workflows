@@ -48,6 +48,7 @@ jobs:
       - name: Check PR labels
         id: check-labels
         run: |
+          echo ${{ steps.pr-number.outputs.pr }}
           PR_LABELS=$(gh pr view ${{ steps.pr-number.outputs.pr }} --json labels -q '.labels[].name')
           MATCH_FOUND=0
           echo a $PR_LABELS
