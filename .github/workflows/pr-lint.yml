@@ -3,10 +3,6 @@ name: Pull request linter
 on:
   workflow_call:
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
-
 jobs:
   enforce-labels:
     runs-on: ubuntu-latest
