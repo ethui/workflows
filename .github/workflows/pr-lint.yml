@@ -53,13 +53,13 @@ jobs:
           echo a $PR_LABELS
           echo ${{ steps.current-labels.outputs.labels }}
 
-          for label in $PR_LABELS; do
-            echo b $label
-            if [[ "$label" =~ ${{ steps.current-labels.outputs.labels }}" ]]; then
-              MATCH_FOUND=1
-              break
-            fi
-          done
+          # for label in $PR_LABELS; do
+          #   echo b $label
+          #   if [[ "$label" =~ ${{ steps.current-labels.outputs.labels }}" ]]; then
+          #     MATCH_FOUND=1
+          #     break
+          #   fi
+          # done
 
           if [[ ! $MATCH_FOUND -eq 1 ]]; then
             echo "No matching labels found. Must have one of: ${{ steps.current-labels.outputs.labels }}"
