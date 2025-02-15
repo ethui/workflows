@@ -1,14 +1,7 @@
 name: Pull request linter
 
 on:
-  pull_request:
-    types:
-      - synchronize
-      - labeled
-      - unlabeled
-      - opened
-      - reopened
-  merge_group:
+  workflow_call:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
