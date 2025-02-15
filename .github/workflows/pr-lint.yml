@@ -53,7 +53,7 @@ jobs:
           MATCH_FOUND=0
 
           for label in $PR_LABELS; do
-            if [[ "$label" =~ "${{ steps.current-labels.outputs.labels }}" ]]; then
+            if [[ "${{ steps.current-labels.outputs.labels }}" =~ "$label" ]]; then
               MATCH_FOUND=1
               break
             fi
