@@ -50,8 +50,10 @@ jobs:
         run: |
           PR_LABELS=$(gh pr view ${{ steps.pr-number.outputs.pr }} --json labels -q '.labels[].name')
           MATCH_FOUND=0
+          echo $PR_LABELS
 
           for label in $PR_LABELS; do
+            echo $label
             if [[ "$label" =~ ${{ steps.current-labels.outputs.labels }}" ]]; then
               MATCH_FOUND=1
               break
